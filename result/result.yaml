@@ -63,8 +63,7 @@ spec:
                 fieldPath: metadata.name
         image: "alipine:latest"
         imagePullPolicy: IfNotPresent
-      template:
-        metadata:
-          labels:
-            app: helm-testing
-            commit: $CI_COMMIT_SHA
+  template:
+    metadata:
+      labels:
+        app: helm-testing

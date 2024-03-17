@@ -39,8 +39,7 @@ spec:
                 fieldPath: metadata.name
         image: "{{ .Values.image.path }}:{{ .Values.image.tag }}"
         imagePullPolicy: {{ .Values.image.pullPolicy }}
-      template:
-        metadata:
-          labels:
-            app: helm-testing
-            commit: $CI_COMMIT_SHA
+  template:
+    metadata:
+      labels:
+        app: helm-testing
