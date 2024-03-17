@@ -18,10 +18,6 @@ spec:
           {{- range .Values.application.entryPoint }}
           - {{ . }}
           {{- end }}
-        command:
-          {{- range .Values.application.command }}
-          - {{ . }}
-          {{- end }}
         envFrom:
         - secretRef:
             name: {{ .Values.secret.name }}

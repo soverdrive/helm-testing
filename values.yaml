@@ -12,7 +12,6 @@ application:
     - tail
     - -f
     - /dev/null
-  command:
 secret:
   name: testing-secret
 image:
@@ -26,47 +25,9 @@ resources:
   requests:
     cpu: 100m
     memory: 128Mi
-nodeSelector: {}
-tolerations: []
-affinity: {}
 service:
   type: ClusterIP
   port: 80
   targetPort: http
   portName: http
   annotations: {}
-ingress:
-  apiVersion: "networking.k8s.io/v1"
-  enabled: false
-  className: nginx
-  path:
-    name: "/"
-    enabled: false
-  hostName: test-apps.com
-  additionalHostNames: []
-  annotations:
-    kubernetes.io/ingress.class: nginx
-  tls:
-    enabled: false
-    secretName: example.com
-hpa:
-  enabled: false
-config:
-  KUBERNETES_REPLICAS: ""
-sealedSecret:
-  enabled: false
-cron:
-  enabled: false
-  schedule: "* * * * *"
-  entryPoint:
-    - bundle
-    - exec
-    - rake
-    - namespace:task
-pdb:
-  enabled: false
-  minAvailableReplica: 3
-volumeMounts: []
-volumes: []
-labels: {}
-dnsPolicy: ClusterFirst

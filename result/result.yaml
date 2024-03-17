@@ -42,7 +42,6 @@ spec:
           - tail
           - -f
           - /dev/null
-        command:
         envFrom:
         - secretRef:
             name: testing-secret
