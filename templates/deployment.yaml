@@ -7,6 +7,9 @@ metadata:
     app: helm-testing
 spec:
   replicas: {{ .Values.deployment.replicas }}
+  selector:
+  matchLabels:
+    app: helm-testing
   strategy:
     rollingUpdate:
       maxUnavailable: {{ .Values.deployment.strategy.rollingUpdate.maxUnavailable}}
@@ -36,3 +39,8 @@ spec:
                 fieldPath: metadata.name
         image: "{{ .Values.image.path }}:{{ .Values.image.tag }}"
         imagePullPolicy: {{ .Values.image.pullPolicy }}
+      template:
+        metadata:
+          labels:
+            app: helm-testing
+            commit: $CI_COMMIT_SHA
