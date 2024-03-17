@@ -15,7 +15,7 @@ application:
 secret:
   name: testing-secret
 image:
-  path: alipine
+  path: alpine
   tag: latest
   pullPolicy: IfNotPresent
 resources:

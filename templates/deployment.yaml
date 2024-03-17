@@ -1,4 +1,4 @@
-apiVersion: v1
+apiVersion: apps/v1
 kind: Deployment
 metadata:
   name: helm-testing
@@ -15,6 +15,10 @@ spec:
       maxUnavailable: {{ .Values.deployment.strategy.rollingUpdate.maxUnavailable}}
       maxSurge : {{ .Values.deployment.strategy.rollingUpdate.maxSurge}}
     type: RollingUpdate
+  template:
+    metadata:
+      labels:
+        app: helm-testing
     spec:
       containers:
       - args:
@@ -39,7 +43,4 @@ spec:
                 fieldPath: metadata.name
         image: "{{ .Values.image.path }}:{{ .Values.image.tag }}"
         imagePullPolicy: {{ .Values.image.pullPolicy }}
-  template:
-    metadata:
-      labels:
-        app: helm-testing
+        name: helm-testing

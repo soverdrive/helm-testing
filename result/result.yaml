@@ -22,7 +22,7 @@ spec:
     app.kubernetes.io/instance: helm-testing
 ---
 # Source: helm-testing/templates/deployment.yaml
-apiVersion: v1
+apiVersion: apps/v1
 kind: Deployment
 metadata:
   name: helm-testing
@@ -39,6 +39,10 @@ spec:
       maxUnavailable: 25%
       maxSurge : 25%
     type: RollingUpdate
+  template:
+    metadata:
+      labels:
+        app: helm-testing
     spec:
       containers:
       - args:
@@ -61,9 +65,6 @@ spec:
             valueFrom:
               fieldRef:
                 fieldPath: metadata.name
-        image: "alipine:latest"
+        image: "alpine:latest"
         imagePullPolicy: IfNotPresent
-  template:
-    metadata:
-      labels:
-        app: helm-testing
+        name: helm-testing
