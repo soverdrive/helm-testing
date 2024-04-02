@@ -1,0 +1,14 @@
+apiVersion: v1
+entries:
+  helm-testing:
+  - apiVersion: v2
+    appVersion: 1.16.0
+    created: "2024-04-02T14:51:15.859117+07:00"
+    description: A Helm chart for Kubernetes
+    digest: c22677bf27cbe80b21d530f176c4c88edb82df3d3a3349f3205300b55a9c9867
+    name: helm-testing
+    type: application
+    urls:
+    - https://soverdrive.github.io/helm-testing/helm-testing-0.1.0.tgz
+    version: 0.1.0
+generated: "2024-04-02T14:51:15.856931+07:00"
