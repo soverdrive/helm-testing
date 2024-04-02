@@ -13,7 +13,7 @@ application:
     - -f
     - /dev/null
 secret:
-  name: testing-secret
+  name: testing-secret-2
 image:
   path: alpine
   tag: latest
